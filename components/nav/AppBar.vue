@@ -1,3 +1,15 @@
+<script setup lang="ts">
+import Toolbar from "../Editor/Toolbar.vue";
+
+const router = useRouter();
+const currentRoute = router.currentRoute;
+
+const { currentWorkspace, centerProp } = defineProps<{
+  centerProp?: "toolbar" | "search";
+  currentWorkspace: String | undefined;
+}>();
+</script>
+
 <template>
   <nav
     class="flex justify-between items-center px-6 py-3 border-b sticky top-0 bg-background z-20"
@@ -25,15 +37,3 @@
     </NuxtLink>
   </nav>
 </template>
-
-<script setup lang="ts">
-import Toolbar from "../Editor/Toolbar.vue";
-
-const router = useRouter();
-const currentRoute = router.currentRoute;
-
-const { currentWorkspace, centerProp } = defineProps<{
-  centerProp?: "toolbar" | "search";
-  currentWorkspace: String | undefined;
-}>();
-</script>

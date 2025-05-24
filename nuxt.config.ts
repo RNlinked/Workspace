@@ -2,19 +2,24 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
+
   runtimeConfig: {
-    API_URL: "http://localhost:8080",
+    API_URL: "http://localhost:8081",
     public: {
-      API_URL: "http://localhost:8080",
+      API_URL: "http://localhost:8081",
     },
   },
+
   colorMode: {
     preference: "light",
   },
-  modules: ["@nuxt/ui", "shadcn-nuxt", "nuxt-tiptap-editor"],
+
+  modules: ["@nuxt/ui", "shadcn-nuxt", "nuxt-tiptap-editor", "@nuxt/fonts"],
+
   ui: {
     icons: ["heroicons", "lucide"],
   },
+
   shadcn: {
     /**
      * Prefix for all the imported component
@@ -26,7 +31,10 @@ export default defineNuxtConfig({
      */
     componentDir: "./components/ui",
   },
+
   tiptap: {
     prefix: "Tiptap", //prefix for Tiptap imports, composables not included
   },
+
+  compatibilityDate: "2025-02-01",
 });

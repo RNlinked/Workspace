@@ -1,29 +1,27 @@
 <template>
-  <UBreadcrumb
-    divider="/"
-    :links="[{ label: 'Home', to: '/' }, { label: 'Folders' }]"
-  />
-  <UTable :rows="files" :columns="columns">
-    <template #name-data="{ row }" class="">
-      <NuxtLink v-if="row.type === 'Folder'" :to="`/folder/${row.id}`">
-        <UIcon :name="icons(row.type) ?? ''" class="text-slate-500 w-5 h-5" />
-        <span class="ml-2">{{ row.name }}</span>
-      </NuxtLink>
-      <NuxtLink v-else :to="`/doc/${row.id}`">
-        <UIcon :name="icons(row.type) ?? ''" class="text-slate-500 w-5 h-5" />
-        <span class="ml-2">{{ row.name }}</span>
-      </NuxtLink>
-    </template>
-    <template #actions-data="{ row }">
-      <UDropdown :items="items(row)">
-        <UButton
-          color="gray"
-          variant="ghost"
-          icon="i-heroicons-ellipsis-horizontal-20-solid"
-        />
-      </UDropdown>
-    </template>
-  </UTable>
+  <div class="px-8">
+    <UTable :rows="files" :columns="columns">
+      <template #name-data="{ row }">
+        <NuxtLink v-if="row.type === 'Folder'" :to="`/folder/${row.id}`">
+          <UIcon :name="icons(row.type) ?? ''" class="text-slate-500 w-5 h-5" />
+          <span class="ml-2">{{ row.name }}</span>
+        </NuxtLink>
+        <NuxtLink v-else :to="`/doc/${row.id}`">
+          <UIcon :name="icons(row.type) ?? ''" class="text-slate-500 w-5 h-5" />
+          <span class="ml-2">{{ row.name }}</span>
+        </NuxtLink>
+      </template>
+      <template #actions-data="{ row }">
+        <UDropdown :items="items(row)">
+          <UButton
+            color="gray"
+            variant="ghost"
+            icon="i-heroicons-ellipsis-horizontal-20-solid"
+          />
+        </UDropdown>
+      </template>
+    </UTable>
+  </div>
 </template>
 
 <script setup lang="ts">

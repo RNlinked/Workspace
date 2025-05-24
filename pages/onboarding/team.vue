@@ -42,7 +42,9 @@
         />
       </span>
 
-      <NuxtLink to="/" class="btn btn-primary text-center">Next</NuxtLink>
+      <NuxtLink to="/" class="btn btn-primary text-center py-1.5"
+        >Next</NuxtLink
+      >
     </form>
   </div>
 </template>

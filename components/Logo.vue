@@ -1,11 +1,16 @@
-<template>
-  <div class="flex items-center gap-3">
-    <img src="/logo-cellery.png" height="40" width="40" alt="Logo" />
-    <p class="font-semibold">
-      RNL <br />
-      <span>Workspace</span>
-    </p>
-  </div>
-</template>
+<script setup lang="ts">
+const authenticated = ref(false);
+</script>
 
-<script setup lang="ts"></script>
+<template>
+  <NuxtLink
+    class="flex items-center gap-2"
+    :to="!authenticated ? '/onboarding' : '/'"
+  >
+    <img src="/logo-cellery.png" class="h-8 w-auto" alt="Logo" />
+    <p class="font-medium text-lg">
+      RNL
+      <span>Workspaces</span>
+    </p>
+  </NuxtLink>
+</template>

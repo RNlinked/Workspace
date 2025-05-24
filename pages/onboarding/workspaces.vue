@@ -1,6 +1,8 @@
 <template>
   <div class="max-w-md mx-auto my-52">
-    <div class="flex items-center justify-center gap-1">
+    <div class="flex items-center justify-center flex-col gap-2">
+      <img src="/logo-cellery.png" class="h-8 w-auto my-1" alt="Logo" />
+
       <h1 class="font-semibold text-2xl text-center">Workspaces</h1>
     </div>
 
@@ -82,7 +84,7 @@
         />
       </label>
 
-      <NuxtLink to="/onboarding/team" class="btn btn-primary text-center"
+      <NuxtLink to="/onboarding/team" class="btn btn-primary text-center py-1.5"
         >Next</NuxtLink
       >
     </form>

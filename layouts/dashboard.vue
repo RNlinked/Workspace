@@ -1,7 +1,11 @@
 <template>
   <div class="h-screen">
     <ResizablePanelGroup id="handle-group-1" direction="horizontal" class="">
-      <ResizablePanel id="handle-panel-1" class="w-fit px-6" :default-size="20">
+      <ResizablePanel
+        id="handle-panel-1"
+        class="w-fit px-6 bg-gray-100/40"
+        :default-size="20"
+      >
         <USelectMenu
           searchable
           clear-search-on-close

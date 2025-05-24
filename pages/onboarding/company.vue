@@ -1,6 +1,11 @@
 <template>
   <div class="max-w-md mx-auto my-52">
-    <h1 class="font-semibold text-2xl text-center">Set up your organization</h1>
+    <span class="flex flex-col items-center justify-center gap-2">
+      <img src="/logo-cellery.png" class="h-8 w-auto" alt="Logo" />
+      <h1 class="font-semibold text-2xl text-center">
+        Set up your organization
+      </h1>
+    </span>
     <form class="flex flex-col gap-8 mt-8 w-full px-4">
       <label class="space-y-2">
         <h3 class="font-medium">Logo</h3>
@@ -21,10 +26,12 @@
       </label>
 
       <label class="space-y-2">
-        <h3 class="font-medium">Orgnization SIze</h3>
+        <h3 class="font-medium">Orgnization size</h3>
         <URadioGroup v-model="selected" :options="options" class="input" />
       </label>
-      <NuxtLink to="/onboarding/workspaces" class="btn btn-primary text-center"
+      <NuxtLink
+        to="/onboarding/workspaces"
+        class="btn btn-primary text-center py-1.5"
         >Next</NuxtLink
       >
     </form>
