@@ -7,5 +7,7 @@ export default antfu({
     indent: 2,
     quotes: "double",
     semi: true,
+    arrowParens: "always",
+    braceStyle: "stroustrup",
   },
 });
