@@ -1,9 +1,0 @@
-@import "tailwindcss";
-@import "@nuxt/ui";
-
-@layer base {
-
-  .input {
-    @apply border border-muted hover:outline-none focus:outline-none p-2 rounded-md;
-  }
-}

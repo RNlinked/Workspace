@@ -1,72 +1,69 @@
 <script setup lang="ts">
-// const route = useRoute();
+import type { NavigationMenuItem } from "@nuxt/ui";
 
-// const { org } = route.params;
+definePageMeta({
+  layout: "dashboard",
+});
+
+const org = useRoute().params.org as string;
+
 const currentWorkspace = ref("Estuary Ward");
+
+const navMenu = ref<NavigationMenuItem[][]>([
+  [
+    {
+      label: "Home",
+      icon: "solar:home-2-linear",
+      to: `/${org}`,
+    },
+    { label: "Inbox", icon: "solar:inbox-line-linear", to: `/${org}/messages` },
+    { label: "Favorites", icon: "solar:star-linear", to: `/${org}/favorites` },
+  ],
+  [
+    { label: "Workspaces", type: "label", children: [
+      { label: "Nursing", to: `/${org}/workspaces/nursing` },
+      { label: "Referrals", to: `/${org}/workspaces/referrals` },
+      { label: "Discharges", to: `/${org}/workspaces/discharges` },
+      { label: "Admissions", to: `/${org}/workspaces/admissions` },
+    ] },
+    { label: "Private Space", type: "label", children: [
+      { label: "Private Documents", to: `/${org}/private/documents` },
+      { label: "Personal Notes", to: `/${org}/private/personal-notes` },
+      { label: "To-Do List", to: `/${org}/private/to-do-list` },
+    ] },
+  ],
+]);
 </script>
 
 <template>
-  <UDashboardGroup>
+  <div>
+    <p>Content for workspace: {{ currentWorkspace }}</p>
+    <p>In Organization: {{ org }}</p>
+    <p>In workspace: {{ currentWorkspace }}</p>
+  </div>
+  <!-- <UDashboardGroup>
     <UDashboardSidebar
       resizable
       :default-size="20"
       :min-size="20"
       :ui="{ footer: 'border-t border-default' }"
     >
-      <!-- :collapsed-size="0" -->
-      <template #header>
+      <template #default>
         <USelectMenu
           v-model="currentWorkspace"
           searchable
           clear-search-on-close
-          size="xl"
-          :items="[
-            'MSE',
-            'Estuary Ward',
-            'Balmoral Ward',
-            'HCA Support Group',
-            'Benfleet ward',
-            'Blenheim ward',
-            'Chalkwell ward',
-            'Dowsett ward',
-            'Eastwood ward',
-            'Elizabeth Loury ward',
-            'Gordon Hopkins ward',
-            'Hockley ward',
-            'Infusion Unit',
-            'Neptune ward',
-            'Paglesham ward',
-            'Princess Anne ward',
-            'Rochford ward',
-            'Shopland ward',
-            'Southbourne ward',
-            'Stambridge ward',
-            'Westcliff ward',
-            'Windsor ward',
-          ]"
-          class="my-4 w-52"
+          size="lg"
+          :items="workspaces"
+          class="w-full"
         />
-      </template>
-
-      <template #default>
         <UDashboardSearchButton />
-        <div class="mb-6">
-          Home
-        </div>
-        <div class="capitalize text-sm">
-          workspaces
-        </div>
-        <div>Nursing</div>
-        <div>Referrals</div>
-        <div>Discharges</div>
-        <div>Admissions</div>
-
-        <h2 class="capitalize text-sm mt-8">
-          Private Space
-        </h2>
-        <div>Personal Notes</div>
-        <div>To-Do List</div>
+        <UNavigationMenu :items="navMenu" orientation="vertical" />
       </template>
     </UDashboardSidebar>
-  </UDashboardGroup>
+    <UDashboardSearch />
+    <div>
+      Content for workspace: {{ currentWorkspace }}
+    </div>
+  </UDashboardGroup> -->
 </template>
